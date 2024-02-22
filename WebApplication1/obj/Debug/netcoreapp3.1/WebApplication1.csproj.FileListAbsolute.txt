@@ -65,3 +65,8 @@ D:\2024\C# Examples\SMS.Web\WebApplication1\obj\Debug\netcoreapp3.1\WebApplicati
 D:\2024\C# Examples\SMS.Web\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.Properties.Resources.resources
 D:\2024\C# Examples\SMS.Web\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.csproj.GenerateResource.cache
 D:\2024\C# Examples\SMS.Web\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.sourcelink.json
+D:\2024\C# Examples\SMS.Web\WebApplication1\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\2024\C# Examples\SMS.Web\WebApplication1\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\2024\C# Examples\SMS.Web\WebApplication1\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\2024\C# Examples\SMS.Web\WebApplication1\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\2024\C# Examples\SMS.Web\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.MvcApplicationPartsAssemblyInfo.cs

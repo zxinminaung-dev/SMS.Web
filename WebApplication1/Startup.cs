@@ -35,6 +35,8 @@ namespace WebApplication1
                     option.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"))
                 );
             services.AddControllers();
+            services.AddMvc().AddControllersAsServices();
+            services.AddSwaggerGen();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
         }
@@ -52,7 +54,8 @@ namespace WebApplication1
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseSwagger();
+            app.UseSwaggerUI();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
