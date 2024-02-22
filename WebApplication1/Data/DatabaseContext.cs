@@ -30,7 +30,7 @@ namespace WebApplication1.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Department>().ToTable("Department");
+            //modelBuilder.Entity<Department>().ToTable("Department");
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
