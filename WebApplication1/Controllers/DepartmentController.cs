@@ -19,8 +19,6 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            Employee employee = new Employee();
-            employee.ID = 1;
             List<Department> deptList = _deptRepo.Get();  
             return Json(deptList);
         }
