@@ -21,5 +21,19 @@ namespace WebApplication1.Controllers
             List<Employee> empList = _employeeRepo.Get();
             return Json(empList);
         }
+        [HttpGet]
+        [Route("getbyid")]
+        public JsonResult GetById(int id)
+        {
+            Employee emp = _employeeRepo.Get(id);
+            return Json(emp);
+        }
+        [HttpGet]
+        [Route("getbyname")]
+        public JsonResult GetById(string name)
+        {
+            Employee emp = _employeeRepo.GetByName(name);
+            return Json(emp);
+        }
     }
 }

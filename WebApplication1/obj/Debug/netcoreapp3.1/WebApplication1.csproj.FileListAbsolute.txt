@@ -64,3 +64,4 @@ D:\2024\C# Examples\SMS.Web\WebApplication1\obj\Debug\netcoreapp3.1\WebApplicati
 D:\2024\C# Examples\SMS.Web\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.genruntimeconfig.cache
 D:\2024\C# Examples\SMS.Web\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.Properties.Resources.resources
 D:\2024\C# Examples\SMS.Web\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.csproj.GenerateResource.cache
+D:\2024\C# Examples\SMS.Web\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.sourcelink.json
