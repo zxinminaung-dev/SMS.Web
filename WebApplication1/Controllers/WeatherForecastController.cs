@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using WebApplication1.Data;
 using WebApplication1.Model.Entity;
 using WebApplication1.Repository.DeopartmentRepositories;
@@ -27,33 +28,61 @@ namespace WebApplication1.Controllers
         {
             using(var context = new DatabaseContext())
             {
-               var departments = context.Department.ToArray();
-                return Json(departments);   
+               var weatherForecast = context.WeatherForecast.ToArray();
+                return Json(weatherForecast);   
             }
         }
         [HttpGet]
-        [Route("departmentList")]
-        public JsonResult GetDepartmentList()
+        [Route("findbyname")]
+        public JsonResult Get(string name)
         {
-            List<Department> deptList = _deptRepo.Get();
-            return Json(deptList);
+            using (var context = new DatabaseContext())
+            {
+                var weatherForecast = context.WeatherForecast.Where(x => x.Name==name).FirstOrDefault();
+                return Json(weatherForecast);
+            }
+        }
+        [HttpPost]
+        public JsonResult Save(WeatherForecast weather)
+        {
+            using (var context = new DatabaseContext())
+            {
+                WeatherForecast weatherForecast = new WeatherForecast();
+                weatherForecast.Name = weather.Name;
+                context.WeatherForecast.Add(weatherForecast);
+                context.SaveChanges();
+                return Json(new {success=true});
+            }
         }
         [HttpGet]
-        [Route("department")]
-        public JsonResult GetDepartment(int id)
+        [Route("getbyid")]
+        public JsonResult GetById(int id)
         {
-            Department dept = _deptRepo.Get(id);
-            return Json(dept);
+            using (var context = new DatabaseContext())
+            {
+                WeatherForecast weatherForecast = context.WeatherForecast.Where(x => x.Id == id).FirstOrDefault();
+                return Json(weatherForecast);
+            }
         }
         [HttpGet]
-        [Route("getdepartmentbyid")]
-        public JsonResult GetDepartmentById()
+        [Route("take")]
+        public JsonResult TakeRecord(int record)
         {
-            int id ;
-            string tempId = Request.Query["id"].ToString();
-            id = Convert.ToInt32(tempId);
-            Department dept = _deptRepo.Get(id);
-            return Json(dept);
+            using (var context = new DatabaseContext())
+            {
+                var weatherForecast = context.WeatherForecast.Take(record).ToList();
+                return Json(weatherForecast);
+            }
+        }
+        [HttpGet]
+        [Route("skipandtake")]
+        public JsonResult SkipAndTakeRecord(int take, int skip)
+        {
+            using (var context = new DatabaseContext())
+            {
+                var weatherForecast = context.WeatherForecast.Take(take).Skip(skip).ToList();
+                return Json(weatherForecast);
+            }
         }
     }
 }

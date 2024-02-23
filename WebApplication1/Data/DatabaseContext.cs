@@ -24,6 +24,7 @@ namespace WebApplication1.Data
          public DbSet<Department> Department { get; set; }
         public DbSet<Employee> Employee { get; set; }
         public DbSet<Visitor> Visitor { get; set; }
+        public DbSet<WeatherForecast> WeatherForecast { get; set; }
         public new DbSet<TEntity> Set<TEntity>() where TEntity : class
         {
             return base.Set<TEntity>();
@@ -33,6 +34,7 @@ namespace WebApplication1.Data
             base.OnModelCreating(modelBuilder);
             //modelBuilder.Entity<Department>().ToTable("Department");
             modelBuilder.Entity<Visitor>().ToTable("T_Visitor");
+            modelBuilder.Entity<WeatherForecast>().ToTable("Tbl_WeatherForecast");
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
