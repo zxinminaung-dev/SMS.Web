@@ -18,14 +18,29 @@ namespace WebApplication1.Common
 
         public List<TEntity> GetAll(QueryOption<TEntity> queryOption)
         {
-            if(queryOption.SortOrder == "DESC")
+            if (queryOption.FilterBy != null)
             {
-                return _context.Set<TEntity>().Take(queryOption.Take).Skip(queryOption.Skip).OrderByDescending(queryOption.SortBy).ToList();
+                if (queryOption.SortOrder == "DESC")
+                {
+                    return _context.Set<TEntity>().Where(queryOption.FilterBy).Take(queryOption.Take).Skip(queryOption.Skip).OrderByDescending(queryOption.SortBy).ToList();
+                }
+                else
+                {
+                    return _context.Set<TEntity>().Where(queryOption.FilterBy).Take(queryOption.Take).Skip(queryOption.Skip).OrderBy(queryOption.SortBy).ToList();
+                }
             }
             else
             {
-                return _context.Set<TEntity>().Take(queryOption.Take).Skip(queryOption.Skip).OrderBy(queryOption.SortBy).ToList();
+                if (queryOption.SortOrder == "DESC")
+                {
+                    return _context.Set<TEntity>().Take(queryOption.Take).Skip(queryOption.Skip).OrderByDescending(queryOption.SortBy).ToList();
+                }
+                else
+                {
+                    return _context.Set<TEntity>().Take(queryOption.Take).Skip(queryOption.Skip).OrderBy(queryOption.SortBy).ToList();
+                }
             }
+            
             
         }
     }

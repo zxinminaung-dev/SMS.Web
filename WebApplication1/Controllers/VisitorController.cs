@@ -22,7 +22,9 @@ namespace WebApplication1.Controllers
         {
             QueryOption<Visitor> queryOption = new QueryOption<Visitor>();
             queryOption.SortBy =(x=>x.ID);
+            queryOption.SortOrder = "ASC";
             queryOption.Take = 2;
+            //queryOption.FilterBy = (x => x.Name.Contains("j"));
             List<Visitor> visitors = _visitorRepo.GetAll(queryOption);
             return Json(visitors);
         }

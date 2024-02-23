@@ -6,6 +6,7 @@ namespace WebApplication1.Common
 {
     public class QueryOption<TEntity> where TEntity : IEntity
     {
+        public QueryOption() { }
         public int Take { get; set; } = 10;
         public int Skip { get; set; } = 0;
         public string SortColumnName { get; set; } = "Id";
