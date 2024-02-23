@@ -15,6 +15,7 @@ using WebApplication1.Data;
 using WebApplication1.Model.Entity;
 using WebApplication1.Repository.DeopartmentRepositories;
 using WebApplication1.Repository.EmployeeRepositorues;
+using WebApplication1.Repository.VisitorRepositories;
 
 namespace WebApplication1
 {
@@ -39,6 +40,7 @@ namespace WebApplication1
             services.AddSwaggerGen();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IVisitorRepository, VisitorRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

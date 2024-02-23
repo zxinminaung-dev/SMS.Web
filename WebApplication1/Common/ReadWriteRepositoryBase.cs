@@ -25,7 +25,8 @@ namespace WebApplication1.Common
 
         public List<TEntity> Get()
         {
-           return _context.Set<TEntity>().ToList();
+            return _context.Set<TEntity>().ToList();
+            //return _context.Set<TEntity>().Take(2).Skip(0).ToList();
         }
 
         public int Save(TEntity entity)
