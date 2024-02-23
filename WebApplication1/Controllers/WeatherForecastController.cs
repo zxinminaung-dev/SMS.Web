@@ -66,11 +66,11 @@ namespace WebApplication1.Controllers
         }
         [HttpGet]
         [Route("take")]
-        public JsonResult TakeRecord(int record)
+        public JsonResult TakeRecord(int take)
         {
             using (var context = new DatabaseContext())
             {
-                var weatherForecast = context.WeatherForecast.Take(record).ToList();
+                var weatherForecast = context.WeatherForecast.Take(take).ToList();
                 return Json(weatherForecast);
             }
         }
@@ -81,6 +81,16 @@ namespace WebApplication1.Controllers
             using (var context = new DatabaseContext())
             {
                 var weatherForecast = context.WeatherForecast.Take(take).Skip(skip).ToList();
+                return Json(weatherForecast);
+            }
+        }
+        [HttpGet]
+        [Route("orderdesc")]
+        public JsonResult OrderDesc()
+        {
+            using (var context = new DatabaseContext())
+            {
+                var weatherForecast = context.WeatherForecast.OrderByDescending(x=>x.Id).ToList();
                 return Json(weatherForecast);
             }
         }
